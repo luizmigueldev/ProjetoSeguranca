@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{%block 'titulo'%}Criar Prontuario{%endblock%}
+
+{%block 'conteudo'%}
+    <div style="margin: 50px" class="d-flex justify-content-center">
+      <h1>Criar Prontuario</h1>
+    </div>
+
+    <form class="row g-3" action="" method="post">
+      {% csrf_token %}
+
+      {{ form|crispy}}
+
+      <div class="col-12" style="margin: 50px">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">SALVAR</button>
+      </div>
+    </form>
+{%endblock%}

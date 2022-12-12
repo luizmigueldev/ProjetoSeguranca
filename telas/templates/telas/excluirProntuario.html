@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+
+{%block 'titulo'%}Criar Prontuario{%endblock%}
+
+{%block 'conteudo'%}
+    <div style="margin: 50px" class="d-flex justify-content-center">
+      <h1>Excluir Prontuario</h1>
+    </div>
+
+    <p class="lead">
+        Confirme se deseja excluir realmente o Prontuario
+    </p>
+
+    <form class="row g-3" action="" method="post">
+      <p>
+            Deseja excluir o prontuario do paciente: {{object}}
+      </p>
+      {% csrf_token %}
+
+      {{ form.as_p}}
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-danger">EXCLUIR</button>
+      </div>
+    </form>
+{%endblock%}

@@ -1,0 +1,53 @@
+{%extends 'base.html'%}
+
+{%block 'titulo'%}Visualisar Prontuario{%endblock%}
+
+{%block 'conteudo'%}
+    <div style="margin: 50px" class="d-flex justify-content-center">
+      <h1>Visualisar Prontuario</h1><br>
+    </div>
+
+    <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="mt-5">{{prontuario.nome}}</h1>
+        <dl>
+          <dt>Data de Nascimento</dt>
+          <dd>{{prontuario.dataNascimento|date:'d/m/Y'}}</dd>
+
+          <dt>N° Registro</dt>
+          <dd>{{prontuario.id}}</dd>
+
+          <dt>Contato</dt>
+          <dd>{{prontuario.contato}}</dd>
+
+          <dt>Pressao arterial</dt>
+          <dd>{{prontuario.pressaoArterial}}</dd>
+
+          <dt>Temperatura</dt>
+          <dd>{{prontuario.temperatura}}</dd>
+
+          <dt>Principais Sintomas</dt>
+          <dd>{{prontuario.principaisSintomas}}</dd>
+
+          <dt>Data de Internação</dt>
+          <dd>{{prontuario.dataInternacao|date:'d/m/Y'}}</dd>
+
+          <dt>Data Alta</dt>
+          <dd>{{prontuario.dataAlta|date:'d/m/Y'}}</dd>
+
+          <dt>Medicacao</dt>
+          <dd>{{prontuario.medicacao}}</dd>
+
+          <dt>Observacoes Complementares</dt>
+          <dd>{{prontuario.observacoesComplementares}}</dd>
+
+        </dl>
+
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-end" style="margin: 50px" >
+      <a type="button" class="btn btn-primary btn-lg" href="/telas/listaProntuario">Voltar</a>
+  </div>
+{%endblock%}

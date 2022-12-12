@@ -1,0 +1,41 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Login</title>
+  </head>
+  <body >
+    <section class="vh-100" >
+      <div class="container py-5 h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+          <div class="col-md-8 col-lg-7 col-xl-6">
+            <img src="https://img.freepik.com/vetores-gratis/conceito-medico-de-equipe-profissional-de-saude-azul_23-2148510386.jpg?w=1380&t=st=1670855022~exp=1670855622~hmac=4ae3d3f9e75ed4c8aea0528dc989a80283ad2910bc44f22852abe56ffe7031be"
+              class="img-fluid" alt="Phone image">
+          </div>
+          <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+            <div class="d-flex justify-content-center" style="margin: 40px">
+                <img src="https://img.freepik.com/vetores-gratis/cartaz-de-luz-sobre-saude-com-adesivos-de-papel-azul-medico-em-branco_1284-49121.jpg?w=740&t=st=1670806240~exp=1670806840~hmac=3a092b6a9a10e59466b9bac1b33a5eee1b5b84e61f28154d22f3cd966d66a26e"
+              class="img-fluid" alt="Phone image">
+            </div>
+            <form method="post">
+              {% csrf_token %}
+              <input type="hidden" name="text" value="{{next}}">
+
+              {{form|crispy}}
+              <div class="d-grid gap-2" >
+                <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin: 50px">Entrar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

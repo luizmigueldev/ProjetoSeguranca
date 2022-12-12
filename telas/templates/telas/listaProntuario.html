@@ -1,0 +1,46 @@
+{%extends 'base.html'%}
+{%block 'titulo'%}Lista Prontuario{%endblock%}
+{%block 'conteudo'%}
+<div style="margin: 50px" class="d-flex justify-content-center">
+  <h1>Lista de Prontuarios</h1>
+</div>
+{%if perms.telas.add_prontuario%}
+<a href="/telas/criarProntuario" type="button" class="btn btn-primary" style="margin: 10px" >Add +</a>
+{%endif%}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">N° Registro</th>
+      <th scope="col">Contato</th>
+      <th scope="col">Pressao Arterial</th>
+      <th scope="col">Temperatura</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+{%for prontuario in prontuarios%}
+    <tr>
+        <td>{{prontuario.nome}}</td>
+        <td>{{prontuario.id}}</td>
+        <td>{{prontuario.contato}}</td>
+        <td>{{prontuario.pressaoArterial}}</td>
+        <td>{{prontuario.temperatura}}</td>
+        <td>
+            {% if perms.telas.view_prontuario %}
+                <a href="{%url 'visualisar_prontuario' prontuario.id %}" type="submit" class="btn btn-success">VISUALIZAR</a>
+            {% endif %}
+            {% if perms.telas.change_prontuario %}
+                <a href="{%url 'editar_prontuario' prontuario.id %}" type="submit" class="btn btn-warning">EDITAR</a>
+            {% endif %}
+            {% if perms.telas.delete_prontuario %}
+                <a href="{%url 'excluir_prontuario' prontuario.id %}" type="submit" class="btn btn-danger">EXCLUIR</a>
+            {% endif %}
+        </td>
+    </tr>
+{%endfor%}
+  </tbody>
+</table>
+{%endblock%}
